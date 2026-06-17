@@ -1,1 +1,66 @@
+/* ==========================================================================
+   1. MENSAGEM DE BOAS-VINDAS DINÂMICA
+   ========================================================================== */
+// Altera a frase de destaque do banner dependendo do horário do usuário
+document.addEventListener("DOMContentLoaded", () => {
+    const hora = new Date().getHours();
+    const saudacaoTexto = document.querySelector(".hero p");
+    
+    // Armazena a mensagem original do HTML para usar como base
+    const mensagemOriginal = " O equilíbrio perfeito entre a alta produção agrícola e a preservação do meio ambiente.";
 
+    if (hora >= 5 && hora < 12) {
+        saudacaoTexto.innerText = "Bom dia!" + mensagemOriginal;
+    } else if (hora >= 12 && hora < 18) {
+        saudacaoTexto.innerText = "Boa tarde!" + mensagemOriginal;
+    } else {
+        saudacaoTexto.innerText = "Boa noite!" + mensagemOriginal;
+    }
+});
+
+/* ==========================================================================
+   2. INTERATIVIDADE NOS CARDS (Efeito de clique)
+   ========================================================================== */
+// Seleciona todos os cards de pilares do site
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(card => {
+    card.addEventListener('click', () => {
+        // Destaca o card clicado mudando temporariamente o fundo
+        card.style.transition = "background-color 0.3s ease";
+        card.style.backgroundColor = "#E8F5E9"; // Um verde bem clarinho
+        
+        // Cria um pequeno alerta discreto no console do navegador (bom para testes)
+        console.log(`Você selecionou o pilar: ${card.querySelector('h3').innerText}`);
+        
+        // Retorna ao fundo original após 800 milissegundos
+        setTimeout(() => {
+            card.style.backgroundColor = "var(--cinza-claro)";
+        }, 800);
+    });
+    
+    // Muda o cursor para indicar que o card é clicável
+    card.style.cursor = "pointer";
+});
+
+/* ==========================================================================
+   3. ROLAGEM SUAVE COM CONSOLIDAÇÃO
+   ========================================================================== */
+// Garante que os links do menu que apontam para IDs internos rolem suavemente
+const linksMenu = document.querySelectorAll('nav a[href^="#"]');
+
+linksMenu.forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault(); // Impede o salto brusco padrão
+        
+        const idAlvo = this.getAttribute('href');
+        const secaoAlvo = document.querySelector(idAlvo);
+        
+        if (secaoAlvo) {
+            secaoAlvo.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
