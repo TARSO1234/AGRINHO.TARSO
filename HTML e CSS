@@ -1,1 +1,68 @@
+/* ==========================================================================
+   1. CONFIGURAÇÕES GERAIS E CORES (Variáveis para facilitar)
+   ========================================================================== */
+:root {
+    --verde-principal: #2E7D32; /* Tom de verde ligado à agricultura e sustentabilidade */
+    --verde-claro: #A5D6A7;
+    --laranja-terra: #E65100;   /* Tom que lembra a terra/produção */
+    --cinza-escuro: #212121;
+    --cinza-claro: #F5F5F5;
+    --branco: #FFFFFF;
+    --fonte-principal: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--fonte-principal);
+    color: var(--cinza-escuro);
+    background-color: var(--branco);
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   2. CABEÇALHO E NAVEGAÇÃO
+   ========================================================================== */
+header {
+    background-color: var(--verde-principal);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+header h1 {
+    color: var(--branco);
+    font-size: 1.5rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--verde-claro);
+}
+
+/* ==========================================================================
+   3. BANNER PRINCIPAL (HERO)
+   ========================================================================== */
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('
